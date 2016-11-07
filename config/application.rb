@@ -4,7 +4,7 @@ require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
-Bundler.require(*Rails.groups)
+Bundler.require(:default, :assets, Rails.env)
 
 module WeddingWebsite
   class Application < Rails::Application
@@ -24,6 +24,6 @@ module WeddingWebsite
     config.active_record.raise_in_transactional_callbacks = true
     config.serve_static_files = true
     config.assets.enabled = true
-    config.assets.paths << "#{Rails.root}/app/assets/fonts"
+    config.assets.version = '1.0'
   end
 end
